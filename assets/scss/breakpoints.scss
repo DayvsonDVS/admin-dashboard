@@ -1,0 +1,17 @@
+$breakpoints: (
+  phone: '(max-width:  480px)',
+  tablet: '(max-width: 768px)',
+  desktop: '(max-width: 992px)'
+) !default;
+
+@mixin for-size($array...) {
+  @each $value in $array {
+    @if map-has-key($breakpoints, $value) {
+      $point: #{map-get($breakpoints, $value)};
+
+      @media #{inspect($point)} {
+        @content;
+      }
+    }
+  }
+}
