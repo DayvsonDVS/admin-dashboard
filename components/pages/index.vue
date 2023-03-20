@@ -14,6 +14,15 @@
 
 <script setup lang="ts">
 import 'assets/scss/main.scss'
+import { useDashboard } from '@/stores/dashboard'
+
+const dashboard = useDashboard()
+
+async function init() {
+  return await Promise.all([dashboard.fetchOrders(), dashboard.fetchCard()])
+}
+
+await useAsyncData('init', () => init(), { initialCache: false } as any)
 
 onMounted(() => {
   const elements = document.querySelectorAll('.navigation li')

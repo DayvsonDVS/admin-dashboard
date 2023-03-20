@@ -1,6 +1,6 @@
 <template>
   <div class="cardBox">
-    <div v-for="{ number, name, icon } in cards" class="card">
+    <div v-for="{ icon, name, number } in cards" class="card">
       <div>
         <Numbers :number="number" />
         <CardName :name="name" />
@@ -12,12 +12,11 @@
 </template>
 
 <script setup lang="ts">
-const cards = [
-  { icon: 'eye-outline', number: '1,504', name: 'Daily Views' },
-  { icon: 'cart-outline', number: '80', name: 'Sales' },
-  { icon: 'chatbubbles-outline', number: '284', name: 'Comments' },
-  { icon: 'cash-outline', number: '$7,842', name: 'Earning' }
-]
+import { useDashboard } from '@/stores/dashboard'
+
+const dashboard = useDashboard()
+
+const cards = dashboard.card
 </script>
 
 <style scoped lang="scss">

@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  modules: ['@pinia/nuxt'],
   vite: {
     css: {
       preprocessorOptions: {
@@ -9,6 +10,7 @@ export default defineNuxtConfig({
       }
     }
   },
+
   vue: {
     compilerOptions: {
       isCustomElement: (tag) => ['ion-icon'].includes(tag)

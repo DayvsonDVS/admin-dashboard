@@ -11,6 +11,9 @@
     "nuxt": "^3.2.3"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.4.7",
+    "ohmyfetch": "^0.4.21",
+    "pinia": "^2.0.33",
     "sass": "^1.58.3"
   }
 }

@@ -12,12 +12,12 @@
       </thead>
 
       <tbody>
-        <tr v-for="{ name, price, payment, Status } in trTable">
+        <tr v-for="{ name, price, payment, status } in trTable">
           <td>{{ name }}</td>
           <td>{{ price }}</td>
           <td>{{ payment }}</td>
           <td>
-            <span :class="`status ${Status}`">{{ Status }}</span>
+            <span :class="`status ${status}`">{{ status }}</span>
           </td>
         </tr>
       </tbody>
@@ -26,77 +26,11 @@
 </template>
 
 <script setup lang="ts">
+import { useDashboard } from '@/stores/dashboard'
+
+const dashboard = useDashboard()
 const tdTable = ['Name', 'Price', 'Payment', 'Status']
-const trTable = [
-  {
-    name: 'Window Coolers',
-    price: '$1200',
-    payment: 'Paid',
-    Status: 'Delivered'
-  },
-  {
-    name: 'Star Refrigerator',
-    price: '$110',
-    payment: 'Due',
-    Status: 'Pending'
-  },
-
-  {
-    name: 'Speakers',
-    price: '$620',
-    payment: 'Paid',
-    Status: 'Return'
-  },
-
-  {
-    name: 'Hp Laptop',
-    price: '$110',
-    payment: 'Due',
-    Status: 'In-Progress'
-  },
-  {
-    name: 'Apple Watch',
-    price: '$1200',
-    payment: 'Paid',
-    Status: 'Delivered'
-  },
-  {
-    name: 'Wall Fan',
-    price: '$110',
-    payment: 'Paid',
-    Status: 'Pending'
-  },
-  {
-    name: 'Adidas Shoes',
-    price: '$620',
-    payment: 'Paid',
-    Status: 'Return'
-  },
-  {
-    name: 'Denim Shirts',
-    price: '$110',
-    payment: 'Due',
-    Status: 'In-Progress'
-  },
-  {
-    name: 'Casual Shoes',
-    price: '$575',
-    payment: 'Paid',
-    Status: 'Pending'
-  },
-  {
-    name: 'Wall Fan',
-    price: '$110',
-    payment: 'Paid',
-    Status: 'Pending'
-  },
-  {
-    name: 'Denim Shirts',
-    price: '$110',
-    payment: 'Due',
-    Status: 'In-Progress'
-  }
-]
+const trTable = dashboard.orders
 </script>
 
 <style scoped lang="scss">
